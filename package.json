@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "agpl-3.0": "jslicense/AGPL-3.0",
+    "knockout": "^3.5.1",
+    "node-sass": "^4.13.1",
+    "parcel-bundler": "^1.12.4",
+    "pattern-library": "openstax/pattern-library#add-multiselect-styling",
+    "sass": "^1.26.3"
+  },
+  "name": "os-widgets",
+  "version": "0.1.0",
+  "description": "Knockout implementations of OpenStax widgets",
+  "main": "index.js",
+  "targets": {
+    "os-multi-select": {
+      "outputFormat": "esmodule"
+    }
+  },
+  "author": "Roy Johnson <roy.e.johnson@rice.edu>",
+  "license": "AGPL-3",
+  "private": false,
+  "scripts": {
+    "start": "parcel -p 3000 src/index.html",
+    "build": "parcel build src/os-multi-select/os-multi-select-global.js"
+  },
+  "dependencies": {}
+}
