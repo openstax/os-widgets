@@ -2,7 +2,9 @@ import './index.scss'
 import ko from 'knockout';
 import osMultiSelect from './os-multi-select/os-multi-select';
 
-const sel = document.querySelector('select');
+const grouped = document.querySelector('select');
+const ungrouped = document.querySelector('select.ungrouped');
 
 window.ko = ko;
-osMultiSelect(sel);
+osMultiSelect(grouped);
+osMultiSelect(ungrouped);

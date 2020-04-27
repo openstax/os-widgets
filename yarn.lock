@@ -4101,7 +4101,7 @@ path-type@^1.0.0:
 
 pattern-library@openstax/pattern-library#add-multiselect-styling:
   version "1.1.18"
-  resolved "https://codeload.github.com/openstax/pattern-library/tar.gz/cd168966822386961b4853ead90597623aa9ef6d"
+  resolved "https://codeload.github.com/openstax/pattern-library/tar.gz/0e3262619d94d776f1597bca06821dbc91860fef"
 
 pbkdf2@^3.0.3:
   version "3.0.17"

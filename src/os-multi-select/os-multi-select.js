@@ -1,15 +1,15 @@
-import msFilterSpec from './ms-filter';
 import msFilteredResultsSpec from './ms-filtered-results';
 import msSelectionsSpec from './ms-selections';
+import msToggleButton from './ms-toggle-button';
 import './os-multi-select.scss';
 
 function registerComponents() {
     if (registerComponents.isDone) {
         return;
     }
-    ko.components.register('ms-filter', msFilterSpec);
     ko.components.register('ms-filtered-results', msFilteredResultsSpec);
     ko.components.register('ms-selections', msSelectionsSpec);
+    ko.components.register('ms-toggle-button', msToggleButton);
     registerComponents.isDone = true;
 }
 registerComponents.isDone = false;
@@ -22,11 +22,13 @@ function getValuesFrom(selector) {
 
         selected.subscribe((newValue) => {
             opt.selected = newValue;
+            selector.dispatchEvent(new Event('change'));
         });
         return {
             label: opt.textContent,
             value: opt.value,
-            selected
+            selected,
+            groups: opt.dataset.groups
         }
     });
 }
@@ -44,34 +46,34 @@ export default function (originalSelector) {
     const selections = ko.pureComputed(() =>
         options().filter((opt) => Boolean(opt.selected()))
     );
+    const resultsShown = ko.observable(false);
     const vm = {
         options,
-        prompt: 'Select one or more',
         filter,
         selections,
-        filteredOptions: ko.pureComputed(
-            () => options().filter(
-                (opt) => !selections().includes(opt)
-            )
-        ),
-        clearFilter() {
-            filter('');
+        placeholder: originalSelector.dataset.placeholder || '',
+        toggleSelection(item) {
+            item.selected(!item.selected());
         },
-        addSelection(item) {
-            item.selected(true);
-        }
+        resultsShown
     };
     const container = htmlToElement(`
         <div class="os-multiselect">
-            <label data-bind="text:prompt"></label>
             <div class="selections-and-filter">
-                <ms-filter params="filter: filter"></ms-filter>
-                <ms-selections params="selections: selections"></ms-selections>
+                <ms-selections params="selections: selections, filter: filter, placeholder: placeholder"></ms-selections>
+                <ms-toggle-button params="isOpen: resultsShown"></ms-toggle-button>
             </div>
-            <ms-filtered-results params="options: filteredOptions, filter: filter, onClick: addSelection"></ms-filtered-results>
+            <!-- ko if: resultsShown -->
+                <ms-filtered-results params="options: options, filter: filter, onClick: toggleSelection"></ms-filtered-results>
+            <!-- /ko -->
         </div>
     `);
 
+    filter.subscribe((newValue) => {
+        if (newValue !== '') {
+            resultsShown(true);
+        }
+    });
     originalSelector.parentNode.insertBefore(container, originalSelector);
     originalSelector.style.display = 'none';
     registerComponents();
