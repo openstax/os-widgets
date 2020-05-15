@@ -1,15 +1,15 @@
-function VM({filter, selections, placeholder}) {
-    this.filter = filter;
-    this.selections = selections;
-    this.placeholder = placeholder
-    this.remove = (data) => {
-        data.selected(false);
-    };
+function VM ({ filter, selections, placeholder }) {
+  this.filter = filter
+  this.selections = selections
+  this.placeholder = placeholder
+  this.remove = (data) => {
+    data.selected(false)
+  }
 }
 
 export default {
-    viewModel: VM,
-    template: `
+  viewModel: VM,
+  template: `
         <div class="selections">
             <input type="text" class="filter" data-bind="textInput: filter, attr: {placeholder: placeholder}">
             <!-- ko foreach: selections -->
@@ -22,4 +22,4 @@ export default {
             <!-- /ko -->
         </div>
     `
-};
+}

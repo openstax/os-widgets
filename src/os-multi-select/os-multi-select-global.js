@@ -1,3 +1,3 @@
-import osMultiSelect from './os-multi-select';
+import osMultiSelect from './os-multi-select'
 
-window.osMultiSelect = osMultiSelect;
+window.osMultiSelect = osMultiSelect

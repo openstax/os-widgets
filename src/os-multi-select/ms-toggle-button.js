@@ -1,15 +1,15 @@
-function VM({isOpen}) {
-    return {
-        isOpen,
-        toggleOpen() {
-            isOpen(!isOpen());
-        }
-    };
+function VM ({ isOpen }) {
+  return {
+    isOpen,
+    toggleOpen () {
+      isOpen(!isOpen())
+    }
+  }
 }
 
 export default {
-    viewModel: VM,
-    template: `
+  viewModel: VM,
+  template: `
         <button type="button" data-bind="click: toggleOpen">
             <!-- ko if: isOpen -->
                 <i class="fa fa-caret-up"></i>
@@ -19,4 +19,4 @@ export default {
             <!-- /ko -->
         </button>
     `
-};
+}

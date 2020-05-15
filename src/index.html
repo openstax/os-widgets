@@ -15,16 +15,21 @@
     <div class="content">
         <h1>With Groups</h1>
         <select multiple data-placeholder="Select your books">
-            <option value="1" data-groups="Odd">One</option>
+          <optgroup label="Odd">
+            <option value="1">One</option>
+            <option value="3">Three</option>
+            <option value="5">Five</option>
+            <option value="7">Seven</option>
+            <option value="9">Nine</option>
+            <option value="i">i</option>
+          </optgroup>
+          <optgroup label="Even">
             <option value="2" data-groups="Even,Odd">Two</option>
-            <option value="3" data-groups="Odd">Three</option>
-            <option value="4" data-groups="Even">Four</option>
-            <option value="5" data-groups="Odd">Five</option>
-            <option value="6" data-groups="Even">Six</option>
-            <option value="7" data-groups="Odd">Seven</option>
-            <option value="8" data-groups="Even">Eight</option>
-            <option value="9" data-groups="Odd">Nine</option>
-            <option value="10" data-groups="Even">Ten</option>
+            <option value="4">Four</option>
+            <option value="6">Six</option>
+            <option value="8">Eight</option>
+            <option value="10">Ten</option>
+            <option value="i">i</option>
         </select>
         <h1>Without Groups</h1>
         <select multiple data-placeholder="Select your books" class="ungrouped">
