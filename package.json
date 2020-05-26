@@ -28,7 +28,9 @@
     "lint": "standard --fix"
   },
   "standard": {
-    "globals": ["ko"]
+    "globals": [
+      "ko"
+    ]
   },
   "dependencies": {}
 }
