@@ -4,7 +4,7 @@
     "@babel/preset-env": "^7.9.5",
     "agpl-3.0": "jslicense/AGPL-3.0",
     "knockout": "^3.5.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.12.4",
     "pattern-library": "openstax/pattern-library#add-multiselect-styling",
     "sass": "^1.26.3",
